@@ -1,50 +1,103 @@
-# Welcome to your Expo app 👋
+# Cardápio — Aplicativo Expo (React Native)
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Este repositório contém um aplicativo móvel criado com Expo e React Native, baseado no template "Focus". O objetivo do app é apresentar um Cardápio digital: listagem de itens, categorias, busca e visualização de detalhes.
 
-## Get started
+## Tecnologias
 
-1. Install dependencies
+- React Native
+- Expo
+- Router baseado em arquivos (diretório `app`)
+- JavaScript / TypeScript (conforme o projeto)
+
+## Recursos principais
+
+- Listagem de pratos/productos por categoria
+- Busca simples por nome
+- Tela de detalhes do item com descrição, preço e imagem
+- Estrutura pronta para integrar carrinho/pedidos (opcional)
+
+> Observação: adapte as funcionalidades acima conforme o código existente no diretório `app`.
+
+## Estrutura do projeto
+
+- `app/` — telas e rotas do aplicativo (file-based routing do Expo)
+- `assets/` — imagens e recursos estáticos
+- `package.json` — scripts e dependências
+- `app-example/` — código exemplo gerado pelo starter (se presente)
+
+## Instalação
+
+1. Instalar dependências
 
    ```bash
    npm install
    ```
 
-2. Start the app
+2. Iniciar o servidor de desenvolvimento do Expo
 
    ```bash
    npx expo start
    ```
 
-In the output, you'll find options to open the app in a
+3. Opções de execução
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+   - Abrir no Expo Go (se compatível)
+   - Executar em emulador Android:
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+   ```bash
+   npx expo run:android
+   ```
 
-## Get a fresh project
+   - Executar em simulador iOS (macOS):
 
-When you're ready, run:
+   ```bash
+   npx expo run:ios
+   ```
 
-```bash
-npm run reset-project
+## Comandos úteis
+
+- `npm install` — instalar dependências
+- `npx expo start` — iniciar Metro / painel do Expo
+- `npm run reset-project` — mover o starter para `app-example` e criar uma `app` vazia (presente no template)
+
+## Desenvolvimento do Cardápio
+
+- Arquivos de dados: crie um JSON em `app/data/menu.json` ou integre uma API para gerenciar itens do cardápio.
+- Componentes sugeridos:
+  - `MenuList` — lista de itens com paginação/scroll
+  - `MenuItemCard` — cartão com imagem, nome e preço
+  - `ItemDetails` — tela de detalhes
+  - `SearchBar` / `CategoryFilter` — filtros e busca
+
+Exemplo simples de estrutura de item (JSON):
+
+```json
+{
+  "id": "1",
+  "title": "Pizza Margherita",
+  "category": "Pizzas",
+  "price": 29.9,
+  "description": "Molho de tomate, mussarela e manjericão",
+  "image": "./assets/pizza-margherita.jpg"
+}
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+## Boas práticas
 
-## Learn more
+- Use `nvm` para gerenciar versões do Node.js ao desenvolver localmente.
+- Mantenha imagens otimizadas em `assets/` para reduzir o tamanho do app.
+- Separe lógica de UI e estado: hooks/custom hooks para chamadas de API e gerenciamento de carrinho.
 
-To learn more about developing your project with Expo, look at the following resources:
+## Como contribuir
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+1. Faça um fork do projeto
+2. Crie uma branch com a feature/bugfix
+3. Abra um pull request descrevendo as alterações
 
-## Join the community
+## Licença
 
-Join our community of developers creating universal apps.
+Verifique o arquivo `LICENSE` ou adicione a licença desejada antes de publicar.
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+---
+
+Se quiser, eu adapto este README com base nas telas/arquivos reais do seu projeto — compartilhe os nomes das principais telas ou um exemplo de `menu.json` e eu atualizo o README automaticamente.
